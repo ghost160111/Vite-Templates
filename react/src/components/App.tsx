@@ -2,12 +2,17 @@ import { Component, ReactNode } from "react";
 import viteLogo from "/vite.svg";
 import reactLogo from "assets/react.svg";
 import "./App.css";
+import Todo from "./Todo";
 
 export interface AppState {
   count: number;
+  viteURL: string;
+  reactURL: string;
 }
 
-export interface AppProps {}
+export interface AppProps {
+  msg: string;
+}
 
 class App extends Component<AppProps, AppState> {
   state: Readonly<AppState>;
@@ -16,26 +21,26 @@ class App extends Component<AppProps, AppState> {
     super(props);
 
     this.state = {
-      count: 0
-    }
+      count: 0,
+      viteURL: "https://vitejs.dev",
+      reactURL: "https://react.dev",
+    };
   }
 
   render(): ReactNode {
     return (
       <>
         <div>
-          <a href="https://vitejs.dev" target="_blank">
+          <a href={this.state.viteURL} target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
           </a>
-          <a href="https://react.dev" target="_blank">
+          <a href={this.state.reactURL} target="_blank">
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
-        <h1>Vite + React</h1>
+        <h1>{this.props.msg}</h1>
         <div className="card">
-          <button onClick={this.setCount}>
-            count is {this.state.count}
-          </button>
+          <button onClick={this.setCount}>count is {this.state.count}</button>
           <p>
             Edit <code>src/App.tsx</code> and save to test HMR
           </p>
@@ -43,15 +48,16 @@ class App extends Component<AppProps, AppState> {
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
         </p>
+        <Todo />
       </>
     );
   }
 
   public setCount = (): void => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
-  }
+  };
 }
 
 export default App;
