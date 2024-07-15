@@ -1,9 +1,21 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+export interface HelloWorldState {
+  count: number;
+}
 
-defineProps<{ msg: string }>()
-
-const count = ref(0)
+export default {
+  props: {
+    msg: {
+      type: String,
+      required: true
+    }
+  },
+  data(): HelloWorldState {
+    return {
+      count: 0
+    }
+  }
+}
 </script>
 
 <template>
