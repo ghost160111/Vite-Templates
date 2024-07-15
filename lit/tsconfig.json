@@ -16,10 +16,16 @@
     "noEmit": true,
 
     /* Linting */
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "elements/*": ["./src/elements/*"],
+      "assets/*": ["./src/assets/*"],
+      "utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src"]
 }

@@ -18,10 +18,16 @@
     "jsx": "preserve",
 
     /* Linting */
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "assets/*": ["./src/assets/*"],
+      "utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
