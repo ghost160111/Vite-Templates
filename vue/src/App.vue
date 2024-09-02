@@ -1,5 +1,24 @@
-<script setup lang="ts">
-import HelloWorld from 'components/HelloWorld.vue'
+<script lang="ts">
+import HelloWorld from 'components/HelloWorld.vue';
+import InputText from 'components/InputText.vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  components: {
+    HelloWorld,
+    InputText
+  },
+  data() {
+    return {
+      message: "Hello world"
+    }
+  },
+  methods: {
+    receiveMessageFromChild(message: string): void {
+      this.$data.message = message;
+    }
+  }
+});
 </script>
 
 <template>
@@ -12,6 +31,8 @@ import HelloWorld from 'components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <InputText :msg="message" @send-message="receiveMessageFromChild" />
+  <p>This is result in parent component: {{ message }}</p>
 </template>
 
 <style scoped>
@@ -21,9 +42,11 @@ import HelloWorld from 'components/HelloWorld.vue'
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

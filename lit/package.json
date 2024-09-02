@@ -8,12 +8,12 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "lit": "^3.1.4"
-  },
   "devDependencies": {
     "@types/node": "^20.14.10",
+    "lit": "^3.2.0",
+    "sass": "^1.77.8",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^4.2.0",
+    "vite-plugin-lit-css": "^1.0.2"
   }
 }

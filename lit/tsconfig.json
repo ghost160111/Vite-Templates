@@ -22,10 +22,14 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "elements/*": ["./src/elements/*"],
       "assets/*": ["./src/assets/*"],
-      "utils/*": ["./src/utils/*"]
-    }
+      "components/*": ["./src/components/*"],
+      "constants/*": ["./src/constants/*"],
+      "i18n/*": ["./src/i18n/*"],
+      "store/*": ["./src/store/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"],
+    },
   },
   "include": ["src"]
 }

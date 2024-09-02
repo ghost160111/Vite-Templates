@@ -24,10 +24,19 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "components/*": ["./src/components/*"],
       "assets/*": ["./src/assets/*"],
-      "utils/*": ["./src/utils/*"]
-    }
+      "components/*": ["./src/components/*"],
+      "constants/*": ["./src/constants/*"],
+      "i18n/*": ["./src/i18n/*"],
+      "store/*": ["./src/store/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"],
+    },
+
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types",
+    ],
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
