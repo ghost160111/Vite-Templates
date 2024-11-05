@@ -15,17 +15,11 @@ export interface AppProps {
 }
 
 class App extends Component<AppProps, AppState> {
-  state: Readonly<AppState>;
-
-  constructor(props: AppProps) {
-    super(props);
-
-    this.state = {
-      count: 0,
-      viteURL: "https://vitejs.dev",
-      reactURL: "https://react.dev",
-    };
-  }
+  state: Readonly<AppState> = {
+    count: 0,
+    viteURL: "https://vitejs.dev",
+    reactURL: "https://react.dev",
+  };
 
   render(): ReactNode {
     return (
@@ -53,10 +47,11 @@ class App extends Component<AppProps, AppState> {
     );
   }
 
-  public setCount = (): void => {
-    this.setState({
+  setCount = (): void => {
+    this.setState(prevState => ({
+      ...prevState,
       count: this.state.count + 1,
-    });
+    }));
   };
 }
 
