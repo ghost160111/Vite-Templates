@@ -17,21 +17,13 @@ export interface TodoProps {
 }
 
 class Todo extends Component<TodoProps, TodoState> {
-  state: Readonly<TodoState>;
+  state: Readonly<TodoState> = {
+    title: "",
+    description: "",
+    store: [],
+  };
 
-  public todoListRef: RefObject<HTMLUListElement>;
-
-  constructor(props: TodoProps) {
-    super(props);
-
-    this.todoListRef = createRef<HTMLUListElement>();
-
-    this.state = {
-      title: "",
-      description: "",
-      store: []
-    }
-  }
+  todoListRef: RefObject<HTMLUListElement> = createRef<HTMLUListElement>();
 
   render(): ReactNode {
     return (
@@ -47,7 +39,7 @@ class Todo extends Component<TodoProps, TodoState> {
     );
   }
 
-  public setTodo = (): void => {
+  setTodo = (): void => {
     if (this.state.title && this.state.description) {
       this.setState({
         store: [...this.state.store, {
@@ -68,7 +60,7 @@ class Todo extends Component<TodoProps, TodoState> {
     }
   }
 
-  public generateTodos = (): ReactNode => {
+  generateTodos = (): ReactNode => {
     return this.state.store.map((todo: TodoItem) =>
       <li key={todo.id}>
         <div>
@@ -79,7 +71,7 @@ class Todo extends Component<TodoProps, TodoState> {
     );
   }
 
-  public onInputSetValue = (key: string, event: FormEvent<HTMLInputElement>): void => {
+  onInputSetValue = (key: string, event: FormEvent<HTMLInputElement>): void => {
     const inputNode: HTMLInputElement = event.target as HTMLInputElement;
     const value: string = inputNode.value;
 
